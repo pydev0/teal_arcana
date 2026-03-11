@@ -27,11 +27,7 @@ const css =
   ITEMS.map((item, i) =>
     `.bgsym-${i}{animation:wander${item.anim} ${item.dur}s ${item.del}s ease-in-out infinite;}`
   ).join("") +
-  `@media(max-width:640px){` +
-  ITEMS.map((item, i) =>
-    `.bgsym-${i}{animation-duration:${Math.round(item.dur * 2.5)}s;opacity:${+(item.op * 0.18).toFixed(3)};}`
-  ).join("") +
-  `}`;
+  `@media(max-width:640px){.bgsym-hide{display:none!important;}}`;
 
 export function BackgroundSymbols() {
   return (
@@ -44,7 +40,7 @@ export function BackgroundSymbols() {
         {ITEMS.map((item, i) => (
           <span
             key={i}
-            className={`bgsym-${i}`}
+            className={`bgsym-${i} bgsym-hide`}
             style={{
               position: "absolute",
               top: item.t,
