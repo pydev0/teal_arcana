@@ -58,7 +58,7 @@ export default function Services() {
         </ScrollReveal>
 
         {/* Heading row */}
-        <ScrollReveal style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "3.5rem" }} className="md:flex-row md:items-end md:justify-between">
+        <ScrollReveal style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "3.5rem" }} className="items-center text-center md:flex-row md:items-end md:justify-between md:text-left">
           <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3rem)", fontWeight: 700, lineHeight: 1.05, maxWidth: 520 }}>
             Pick what <span className="gradient-text">calls to you.</span>
           </h2>
