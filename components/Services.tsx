@@ -58,11 +58,11 @@ export default function Services() {
         </ScrollReveal>
 
         {/* Heading row */}
-        <ScrollReveal style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "3.5rem" }} className="items-center text-center md:flex-row md:items-end md:justify-between md:text-left">
-          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, lineHeight: 1.05, maxWidth: 520 }}>
+        <ScrollReveal style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, lineHeight: 1.05, marginBottom: "1rem" }}>
             Pick what <span className="gradient-text">calls to you.</span>
           </h2>
-          <p style={{ color: "var(--muted)", fontSize: "0.9rem", maxWidth: 260, lineHeight: 1.6 }}>
+          <p style={{ color: "var(--muted)", fontSize: "0.9rem", lineHeight: 1.6, maxWidth: 400, margin: "0 auto" }}>
             Every session is 1-on-1. No scripts, no copy-paste answers. Just you, me, and the cards.
           </p>
         </ScrollReveal>
