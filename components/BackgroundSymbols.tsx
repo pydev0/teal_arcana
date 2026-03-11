@@ -23,9 +23,15 @@ const ITEMS = [
   { s: "XIII",t: "15%", l: "55%", sz: "0.7rem", op: 0.14, anim: 5, dur: 26, del: 4   },
 ];
 
-const css = ITEMS.map((item, i) =>
-  `.bgsym-${i}{animation:wander${item.anim} ${item.dur}s ${item.del}s ease-in-out infinite;}`
-).join("");
+const css =
+  ITEMS.map((item, i) =>
+    `.bgsym-${i}{animation:wander${item.anim} ${item.dur}s ${item.del}s ease-in-out infinite;}`
+  ).join("") +
+  `@media(max-width:640px){` +
+  ITEMS.map((item, i) =>
+    `.bgsym-${i}{animation-duration:${Math.round(item.dur * 2)}s;opacity:${+(item.op * 0.45).toFixed(3)};}`
+  ).join("") +
+  `}`;
 
 export function BackgroundSymbols() {
   return (
