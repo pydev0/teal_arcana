@@ -255,16 +255,6 @@ export default function Hero() {
 
       </div>
 
-      {/* Scroll indicator */}
-      <div style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)" }}>
-        <div style={{ width: 1, height: 48, background: "linear-gradient(to bottom, var(--teal), transparent)", position: "relative", overflow: "visible" }}>
-          <motion.div
-            animate={{ y: [0, 36, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--teal)", marginLeft: -2, boxShadow: "0 0 8px var(--teal)" }}
-          />
-        </div>
-      </div>
     </section>
   );
 }
