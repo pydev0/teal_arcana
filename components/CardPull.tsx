@@ -125,17 +125,17 @@ export default function CardPull() {
       <div style={{ position: "absolute", left: "8%", top: "15%", width: 420, height: 420, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", filter: "blur(55px)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", right: "5%", bottom: "20%", width: 360, height: 360, borderRadius: "50%", background: "radial-gradient(circle, rgba(11,191,187,0.07) 0%, transparent 70%)", filter: "blur(55px)", pointerEvents: "none" }} />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <ScrollReveal style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: "1.2rem" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: "1.5rem" }}>
             <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
             <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>
               Single Pull
             </span>
             <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
           </div>
-          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
+          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
             Pick a <span className="gradient-text">card.</span>
           </h2>
           <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.65, maxWidth: 340, margin: "0 auto" }}>

@@ -68,14 +68,14 @@ export default function BookingForm() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <ScrollReveal style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: "1.2rem" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: "1.5rem" }}>
             <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
             <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>
               Begin Your Journey
             </span>
             <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
           </div>
-          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
+          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
             Book a <span className="gradient-text">Reading</span>
           </h2>
           <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.65 }}>

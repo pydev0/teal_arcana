@@ -42,8 +42,8 @@ export default function HowItWorks() {
           <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
         </ScrollReveal>
 
-        <ScrollReveal style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3rem)", fontWeight: 700, lineHeight: 1.1 }}>
+        <ScrollReveal style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, lineHeight: 1.1 }}>
             Simple as <span className="gradient-text">1 · 2 · 3</span>
           </h2>
         </ScrollReveal>

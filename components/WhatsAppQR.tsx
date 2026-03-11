@@ -14,7 +14,7 @@ export default function WhatsAppQR() {
   const qrInView = useInView(qrRef, { once: true, margin: "-60px 0px" });
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="py-28 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div
@@ -37,12 +37,12 @@ export default function WhatsAppQR() {
 
               {/* Text */}
               <div>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "1.2rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "1.5rem" }}>
                   <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
                   <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>Quick Connect</span>
                   <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
                 </div>
-                <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3rem)", fontWeight: 700, lineHeight: 1.15, marginBottom: "0.75rem" }}>
+                <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, lineHeight: 1.15, marginBottom: "0.75rem" }}>
                   Reach Me on{" "}
                   <span className="gradient-text">WhatsApp</span>
                 </h2>
