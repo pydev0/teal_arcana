@@ -163,12 +163,12 @@ export default function Hero() {
             style={{ fontSize: "clamp(2.2rem, 7vw, 5.5rem)", lineHeight: 1.05, fontWeight: 700, marginBottom: "1.5rem", color: "var(--warm)" }}
           >
             The cards
-            <br />
-            <span className="gradient-text">already know.</span>
-            <br />
-            Do you dare
-            <br />
-            to listen?
+            <br className="hidden sm:block" />
+            {" "}<span className="gradient-text">already know.</span>
+            <br className="hidden sm:block" />
+            {" "}Do you dare
+            <br className="hidden sm:block" />
+            {" "}to listen?
           </motion.h1>
 
           {/* Mobile — card fan between heading and paragraph */}
