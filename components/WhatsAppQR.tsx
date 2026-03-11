@@ -53,9 +53,10 @@ export default function WhatsAppQR() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.04, boxShadow: "0 0 24px rgba(37,211,102,0.35)" }}
                   whileTap={{ scale: 0.97 }}
+                  className="sm:inline-flex"
                   style={{
-                    display: "inline-flex", alignItems: "center", gap: 8,
-                    padding: "0.75rem 1.6rem", borderRadius: 9999,
+                    display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                    padding: "0.85rem 1.6rem", borderRadius: 9999,
                     background: "#25D366", color: "#fff",
                     fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.04em", textTransform: "uppercase",
                   }}
@@ -67,8 +68,8 @@ export default function WhatsAppQR() {
                 </motion.a>
               </div>
 
-              {/* QR Code */}
-              <div ref={qrRef} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, flexShrink: 0 }}>
+              {/* QR Code — desktop only (useless on mobile) */}
+              <div ref={qrRef} className="hidden sm:flex" style={{ flexDirection: "column", alignItems: "center", gap: 12, flexShrink: 0 }}>
                 <motion.div
                   animate={qrInView ? { scale: 1, rotate: 0 } : { scale: 0.82, rotate: -5 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}

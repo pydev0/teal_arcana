@@ -50,9 +50,9 @@ export default function HowItWorks() {
         </ScrollReveal>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory md:snap-none">
           {STEPS.map((step, i) => (
-            <ScrollReveal key={step.num} delay={i * 0.15}>
+            <ScrollReveal key={step.num} delay={i * 0.15} className="snap-center flex-shrink-0 w-[78vw] md:w-auto">
               <motion.div
                 whileHover={{ y: -4, borderColor: "rgba(11,191,187,0.35)" }}
                 transition={{ duration: 0.25 }}

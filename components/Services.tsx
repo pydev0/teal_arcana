@@ -68,29 +68,54 @@ export default function Services() {
 
         {/* Service rows */}
         <div ref={listRef}>
-          {services.map((s, i) => (
-            <motion.div
-              key={s.num}
-              custom={i}
-              variants={rowVariants}
-              initial="hidden"
-              animate={listInView ? "visible" : "hidden"}
-              className="service-row"
-              style={{ display: "flex", alignItems: "flex-start", gap: 24, paddingBlock: 28, cursor: "default" }}
-            >
-              <motion.span
-                className="service-num font-display"
-                whileHover={{ textShadow: "0 0 14px rgba(11,191,187,0.9)" }}
-                style={{ fontSize: "0.72rem", color: "var(--muted)", letterSpacing: "0.12em", paddingTop: 4, minWidth: "2rem", transition: "color 0.2s" }}
+          {/* Mobile: 2-col tile grid */}
+          <div className="grid grid-cols-2 gap-3 sm:hidden">
+            {services.map((s, i) => (
+              <motion.div
+                key={s.num}
+                custom={i}
+                variants={rowVariants}
+                initial="hidden"
+                animate={listInView ? "visible" : "hidden"}
+                style={{
+                  padding: "1rem",
+                  borderRadius: 14,
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  background: "rgba(255,255,255,0.02)",
+                }}
               >
-                {s.num}
-              </motion.span>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <h3 className="font-display" style={{ fontSize: "1.2rem", fontWeight: 600, color: "var(--warm)", marginBottom: 8 }}>{s.title}</h3>
-                <p style={{ color: "var(--muted)", fontSize: "0.88rem", lineHeight: 1.65 }}>{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+                <span className="font-display" style={{ fontSize: "0.6rem", color: "var(--teal)", letterSpacing: "0.12em" }}>{s.num}</span>
+                <h3 className="font-display" style={{ fontSize: "0.88rem", fontWeight: 600, color: "var(--warm)", marginTop: 6, lineHeight: 1.3 }}>{s.title}</h3>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop: original rows */}
+          <div className="hidden sm:block">
+            {services.map((s, i) => (
+              <motion.div
+                key={s.num}
+                custom={i}
+                variants={rowVariants}
+                initial="hidden"
+                animate={listInView ? "visible" : "hidden"}
+                className="service-row"
+                style={{ display: "flex", alignItems: "flex-start", gap: 24, paddingBlock: 28, cursor: "default" }}
+              >
+                <motion.span
+                  className="service-num font-display"
+                  whileHover={{ textShadow: "0 0 14px rgba(11,191,187,0.9)" }}
+                  style={{ fontSize: "0.72rem", color: "var(--muted)", letterSpacing: "0.12em", paddingTop: 4, minWidth: "2rem", transition: "color 0.2s" }}
+                >
+                  {s.num}
+                </motion.span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <h3 className="font-display" style={{ fontSize: "1.2rem", fontWeight: 600, color: "var(--warm)", marginBottom: 8 }}>{s.title}</h3>
+                  <p style={{ color: "var(--muted)", fontSize: "0.88rem", lineHeight: 1.65 }}>{s.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* CTA + mood toggle */}
