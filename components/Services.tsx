@@ -53,7 +53,7 @@ export default function Services() {
         {/* Label */}
         <ScrollReveal style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: "1.5rem" }}>
           <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
-          <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>04 — Readings</span>
+          <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>Readings</span>
           <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
         </ScrollReveal>
 
