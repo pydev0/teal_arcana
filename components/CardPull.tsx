@@ -135,7 +135,7 @@ export default function CardPull() {
             </span>
             <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
           </div>
-          <h2 className="font-display" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
+          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
             Pick a <span className="gradient-text">card.</span>
           </h2>
           <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.65, maxWidth: 340, margin: "0 auto" }}>

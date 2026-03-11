@@ -160,7 +160,7 @@ export default function Hero() {
           <motion.h1
             variants={item}
             className="font-display"
-            style={{ fontSize: "clamp(2.8rem, 6vw, 5rem)", lineHeight: 1.05, fontWeight: 700, marginBottom: "1.5rem", color: "var(--warm)" }}
+            style={{ fontSize: "clamp(2.2rem, 6vw, 4.5rem)", lineHeight: 1.05, fontWeight: 700, marginBottom: "1.5rem", color: "var(--warm)" }}
           >
             The cards
             <br />
