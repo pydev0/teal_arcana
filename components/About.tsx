@@ -104,7 +104,7 @@ export default function About() {
           {/* Right — text */}
           <div className="md:col-span-3">
             <ScrollReveal delay={0.15}>
-              <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, lineHeight: 1.1, marginBottom: "1.5rem" }}>
+              <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 700, lineHeight: 1.1, marginBottom: "1.5rem" }}>
                 Two years. Hundreds of
                 <br />
                 <span className="gradient-text">real conversations.</span>

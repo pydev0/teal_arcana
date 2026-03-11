@@ -75,7 +75,7 @@ export default function BookingForm() {
             </span>
             <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
           </div>
-          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
+          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
             Book a <span className="gradient-text">Reading</span>
           </h2>
           <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.65 }}>

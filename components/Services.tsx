@@ -59,7 +59,7 @@ export default function Services() {
 
         {/* Heading row */}
         <ScrollReveal style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)", fontWeight: 700, lineHeight: 1.05, marginBottom: "1rem" }}>
+          <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 700, lineHeight: 1.05, marginBottom: "1rem" }}>
             Pick what <span className="gradient-text">calls to you.</span>
           </h2>
           <p style={{ color: "var(--muted)", fontSize: "0.9rem", lineHeight: 1.6, maxWidth: 400, margin: "0 auto" }}>
