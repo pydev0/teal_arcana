@@ -173,7 +173,11 @@ export default function Hero() {
 
           {/* Mobile — card fan between heading and paragraph */}
           <motion.div variants={item} className="lg:hidden flex justify-center items-end gap-3 my-6">
-            {CARDS.slice(1, 4).map((card, i) => {
+            {[
+              { src: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg", name: "The Empress" },
+              { src: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg", name: "High Priestess" },
+              { src: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg", name: "The Emperor" },
+            ].map((card, i) => {
               const rotations = [-10, 0, 10];
               const yOffsets = [14, 0, 14];
               return (
