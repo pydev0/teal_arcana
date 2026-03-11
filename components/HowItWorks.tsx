@@ -36,11 +36,10 @@ export default function HowItWorks() {
 
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <ScrollReveal style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "1.5rem" }}>
-          <span style={{ fontSize: "0.68rem", letterSpacing: "0.35em", color: "var(--muted)", textTransform: "uppercase" }}>
-            03 — Process
-          </span>
-          <div className="teal-line" style={{ width: 60 }} />
+        <ScrollReveal style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: "1.5rem" }}>
+          <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
+          <span style={{ fontSize: "0.68rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>03 — Process</span>
+          <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
         </ScrollReveal>
 
         <ScrollReveal style={{ marginBottom: "4rem" }}>

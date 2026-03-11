@@ -25,9 +25,10 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto">
         {/* Label */}
-        <ScrollReveal style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "4rem" }}>
-          <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--muted)", textTransform: "uppercase" }}>01 — About</span>
-          <div className="teal-line" style={{ flex: 1, maxWidth: 96 }} />
+        <ScrollReveal style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: "4rem" }}>
+          <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
+          <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>01 — About</span>
+          <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
         </ScrollReveal>
 
         <div className="grid md:grid-cols-5 gap-12 md:gap-20 items-start" ref={ref}>
