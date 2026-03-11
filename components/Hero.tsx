@@ -147,6 +147,31 @@ export default function Hero() {
       {/* Two-column layout */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-20 lg:py-0 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
+        {/* Mobile — 3 card fan (appears above text on mobile) */}
+        <div className="col-span-full lg:hidden flex justify-center items-end gap-3 pb-2">
+          {CARDS.slice(1, 4).map((card, i) => {
+            const rotations = [-10, 0, 10];
+            const yOffsets = [14, 0, 14];
+            return (
+              <motion.div
+                key={card.name}
+                initial={{ y: 50, rotate: rotations[i] - 6, scale: 0.75, opacity: 0 }}
+                animate={{ y: yOffsets[i], rotate: rotations[i], scale: 1, opacity: 1 }}
+                transition={{ duration: 0.9, delay: 0.3 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  width: 90, height: 155, borderRadius: 10, overflow: "hidden",
+                  border: "1.5px solid rgba(11,191,187,0.35)",
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.6), 0 0 20px rgba(11,191,187,0.1)",
+                  flexShrink: 0,
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={card.src} alt={card.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </motion.div>
+            );
+          })}
+        </div>
+
         {/* Left — text */}
         <motion.div variants={container} initial="initial" animate="animate">
 
@@ -228,30 +253,6 @@ export default function Hero() {
         </div>
         </div>
 
-        {/* Mobile — 3 card fan (full-width row below text) */}
-        <div className="col-span-full lg:hidden flex justify-center items-end gap-3 pb-4">
-          {CARDS.slice(1, 4).map((card, i) => {
-            const rotations = [-10, 0, 10];
-            const yOffsets = [14, 0, 14];
-            return (
-              <motion.div
-                key={card.name}
-                initial={{ y: 50, rotate: rotations[i] - 6, scale: 0.75, opacity: 0 }}
-                animate={{ y: yOffsets[i], rotate: rotations[i], scale: 1, opacity: 1 }}
-                transition={{ duration: 0.9, delay: 0.3 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                style={{
-                  width: 90, height: 155, borderRadius: 10, overflow: "hidden",
-                  border: "1.5px solid rgba(11,191,187,0.35)",
-                  boxShadow: "0 12px 40px rgba(0,0,0,0.6), 0 0 20px rgba(11,191,187,0.1)",
-                  flexShrink: 0,
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={card.src} alt={card.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              </motion.div>
-            );
-          })}
-        </div>
       </div>
 
       {/* Scroll indicator */}
