@@ -29,7 +29,7 @@ const css =
   ).join("") +
   `@media(max-width:640px){` +
   ITEMS.map((item, i) =>
-    `.bgsym-${i}{animation-duration:${Math.round(item.dur * 2)}s;opacity:${+(item.op * 0.45).toFixed(3)};}`
+    `.bgsym-${i}{animation-duration:${Math.round(item.dur * 2.5)}s;opacity:${+(item.op * 0.18).toFixed(3)};}`
   ).join("") +
   `}`;
 
