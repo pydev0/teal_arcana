@@ -37,10 +37,12 @@ export default function WhatsAppQR() {
 
               {/* Text */}
               <div>
-                <p style={{ fontSize: "0.7rem", letterSpacing: "0.3em", color: "var(--teal)", textTransform: "uppercase", marginBottom: "0.75rem" }}>
-                  Quick Connect
-                </p>
-                <h2 className="font-display" style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)", fontWeight: 700, lineHeight: 1.15, marginBottom: "0.75rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "1.2rem" }}>
+                  <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
+                  <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>Quick Connect</span>
+                  <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
+                </div>
+                <h2 className="font-display" style={{ fontSize: "clamp(2rem, 3.5vw, 2.5rem)", fontWeight: 700, lineHeight: 1.15, marginBottom: "0.75rem" }}>
                   Reach Me on{" "}
                   <span className="gradient-text">WhatsApp</span>
                 </h2>
