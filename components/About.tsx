@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { ScrollReveal } from "./ScrollReveal";
 
 export default function About() {
@@ -33,62 +34,37 @@ export default function About() {
 
         <div className="grid md:grid-cols-5 gap-12 md:gap-20 items-start" ref={ref}>
 
-          {/* Left — cards + quote */}
+          {/* Left — photos + quote */}
           <div className="md:col-span-2 flex flex-col gap-8">
-            {/* Stacked card fan */}
-            <div style={{ position: "relative", width: 176, height: 256, margin: "0 auto" }}>
-
-              {/* Card back-most (gold) */}
-              <motion.div
-                animate={inView ? { rotate: 7, x: 0, scale: 1 } : { rotate: 0, x: -14, scale: 0.92 }}
-                transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                style={{
-                  position: "absolute", width: 160, height: 240, borderRadius: 16, top: 14, left: 18,
-                  border: "1px solid rgba(201,168,76,0.2)",
-                  background: "linear-gradient(135deg, rgba(201,168,76,0.08), var(--surface))",
-                }}
-              />
-
-              {/* Card middle (teal) */}
-              <motion.div
-                animate={inView ? { rotate: -4, x: 0, scale: 1 } : { rotate: 0, x: 14, scale: 0.92 }}
-                transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                style={{
-                  position: "absolute", width: 160, height: 240, borderRadius: 16, top: 7, left: 9,
-                  border: "1px solid rgba(11,191,187,0.2)",
-                  background: "linear-gradient(135deg, rgba(11,191,187,0.08), var(--surface))",
-                }}
-              />
-
-              {/* Card front */}
-              <motion.div
-                animate={inView ? { scale: 1, y: 0 } : { scale: 0.9, y: 10 }}
-                transition={{ duration: 0.85, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                style={{
-                  position: "absolute", width: 160, height: 240, borderRadius: 16,
-                  border: "1px solid rgba(255,255,255,0.08)", background: "var(--surface)",
-                  boxShadow: "0 0 40px rgba(11,191,187,0.1), 0 0 80px rgba(11,191,187,0.05)",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12,
-                  overflow: "hidden",
-                }}
-              >
-                {/* Inner border */}
-                <div style={{ position: "absolute", inset: 8, borderRadius: 10, border: "1px solid rgba(11,191,187,0.1)" }} />
-                {/* Floating moon symbol */}
-                <motion.span
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  style={{ fontSize: "2.5rem", position: "relative", zIndex: 1 }}
+            {/* Photo mosaic grid */}
+            <motion.div
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}
+            >
+              {[1, 2, 3, 4].map((n, i) => (
+                <motion.div
+                  key={n}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.6, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  style={{
+                    borderRadius: 12, overflow: "hidden", aspectRatio: "3/4",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+                    position: "relative",
+                  }}
                 >
-                  ☽
-                </motion.span>
-                <div style={{ textAlign: "center", paddingInline: 12, position: "relative", zIndex: 1 }}>
-                  <p style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "var(--teal)", textTransform: "uppercase" }}>The High Priestess</p>
-                  <div className="teal-line" style={{ marginTop: 10 }} />
-                  <p style={{ fontSize: "0.6rem", color: "var(--muted)", marginTop: 8, fontStyle: "italic" }}>Intuition · Mystery · Wisdom</p>
-                </div>
-              </motion.div>
-            </div>
+                  <Image
+                    src={`/about-${n}.jpeg`}
+                    alt={`About photo ${n}`}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 768px) 45vw, 15vw"
+                  />
+                </motion.div>
+              ))}
+
+            </motion.div>
 
             {/* Pull quote */}
             <ScrollReveal delay={0.4}>
@@ -126,8 +102,8 @@ export default function About() {
               style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
             >
               {[
-                { value: "2+", label: "Years Reading" },
-                { value: "300+", label: "Sessions Done" },
+                { value: "4+", label: "Years Reading" },
+                { value: "500+", label: "Sessions Done" },
                 { value: "1:1", label: "Always Personal" },
               ].map((s, i) => (
                 <motion.div
