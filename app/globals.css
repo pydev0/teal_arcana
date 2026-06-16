@@ -283,3 +283,25 @@ body::after {
   border-color: var(--teal);
   background: rgba(11,191,187,0.08);
 }
+
+/* Dual-row testimonial marquee */
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-left {
+  animation: marqueeLeft 45s linear infinite;
+}
+.marquee-right {
+  animation: marqueeRight 45s linear infinite;
+}
+
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}

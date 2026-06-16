@@ -5,20 +5,26 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 
 const services = [
-  { num: "01", title: "Single Card Pull", desc: "One card. One question. Straight to the point. Great for a daily check-in or when you need a clear answer fast." },
-  { num: "02", title: "Three Card Spread", desc: "Past, present, future — or situation, action, outcome. Perfect for decisions or understanding where you're at right now." },
-  { num: "03", title: "Celtic Cross", desc: "The full picture. Ten cards covering everything — your current energy, hidden influences, fears, hopes, and likely outcome." },
-  { num: "04", title: "Love & Relationships", desc: "For the messy, complicated, beautiful parts of love. Clarity on your relationship, compatibility, or what's blocking connection." },
-  { num: "05", title: "Career & Purpose", desc: "Feeling stuck or unsure of your direction? This one looks at your path, hidden opportunities, and where your energy should go." },
-  { num: "06", title: "Year Ahead", desc: "Twelve cards — one for each month. A roadmap of themes, energy, and what to watch out for in the year coming." },
-  { num: "07", title: "Mind · Body · Spirit", desc: "Three cards, three layers. Your mental state, physical energy, and spiritual alignment right now. Grounding and clarifying." },
-  { num: "08", title: "Monthly Forecast", desc: "A focused look at the energy, themes, and shifts shaping your month ahead. Good for checking in at the start of something new." },
-  { num: "09", title: "Shadow Work", desc: "The cards don't lie. This spread digs into patterns, blocks, and hidden parts of yourself that might be running the show without you knowing." },
-  { num: "10", title: "Intuitive Reading", desc: "No agenda, no fixed spread. I read what comes through — raw, unfiltered, and often the most honest session you'll have. Great when you don't know where to start." },
+  { num: "01", title: "30 Minute Reading", desc: "A full tarot and angel card session. Enough time to go deep — multiple questions, layered guidance, and real clarity on what's moving in your life." },
+  { num: "02", title: "20 Minute Reading", desc: "A focused tarot and angel card session. Perfect when you have a clear topic or a couple of questions and want honest, direct insight." },
+  { num: "03", title: "1 Question Reading", desc: "One question, one honest answer. Straight to the point using tarot and angel cards to cut through the noise." },
+  { num: "04", title: "Word Affirmation Reading", desc: "Receive a powerful word affirmation channelled through the cards. A message to carry with you — simple, grounding, and aligned to your energy." },
+  { num: "05", title: "Oracle / Angel Card Reading", desc: "Gentle, uplifting guidance through oracle and angel cards. Perfect for spiritual encouragement, reassurance, and connecting with higher energy." },
+  { num: "06", title: "5 Card Reading", desc: "Five cards laid out to give you a broader picture. Great for understanding a situation from multiple angles — past influences, present energy, and what's ahead." },
+  { num: "07", title: "Audio Recorded Reading", desc: "Your reading delivered as a voice recording via WhatsApp. Listen back anytime — personal, intimate, and on your own time." },
+  { num: "08", title: "Email Reading", desc: "A detailed written reading sent straight to your inbox. Thoughtful, in-depth, and something you can revisit whenever you need it." },
+  { num: "09", title: "Single Card Pull", desc: "One card. One question. Straight to the point. Great for a daily check-in or when you need a clear answer fast." },
+  { num: "10", title: "Three Card Spread", desc: "Past, present, future — or situation, action, outcome. Perfect for decisions or understanding where you're at right now." },
+  { num: "11", title: "Love & Relationships", desc: "For the messy, complicated, beautiful parts of love. Clarity on your relationship, compatibility, or what's blocking connection." },
+  { num: "12", title: "Career & Purpose", desc: "Feeling stuck or unsure of your direction? This one looks at your path, hidden opportunities, and where your energy should go." },
+  { num: "13", title: "Year Ahead", desc: "Twelve cards — one for each month. A roadmap of themes, energy, and what to watch out for in the year coming." },
+  { num: "14", title: "Mind · Body · Spirit", desc: "Three cards, three layers. Your mental state, physical energy, and spiritual alignment right now. Grounding and clarifying." },
+  { num: "15", title: "Shadow Work", desc: "The cards don't lie. This spread digs into patterns, blocks, and hidden parts of yourself that might be running the show without you knowing." },
+  { num: "16", title: "Intuitive Reading", desc: "No agenda, no fixed spread. I read what comes through — raw, unfiltered, and often the most honest session you'll have. Great when you don't know where to start." },
 ];
 
 const MOODS = [
-  { emoji: "🌊", label: "Lost & Drifting",   sub: "Not sure where you're headed",  reading: "Celtic Cross",         hint: "Ten cards covering your full situation — energy, blocks, fears, hopes, and likely outcome." },
+  { emoji: "🌊", label: "Lost & Drifting",   sub: "Not sure where you're headed",  reading: "Intuitive Reading",    hint: "No agenda, no fixed spread. Raw, unfiltered, and often the most honest session when you're feeling lost." },
   { emoji: "💫", label: "In Love",            sub: "Heart full or complicated",     reading: "Love & Relationships",  hint: "Clarity on connection, compatibility, or what's quietly blocking intimacy." },
   { emoji: "🔀", label: "At a Crossroads",    sub: "A big decision is looming",     reading: "Three Card Spread",     hint: "Past · Present · Future — see where you've been and what's actually coming." },
   { emoji: "🔥", label: "Seeking Purpose",    sub: "Work or path feels off",        reading: "Career & Purpose",      hint: "Uncover your direction, hidden opportunities, and where your energy should go." },

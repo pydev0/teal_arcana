@@ -89,9 +89,9 @@ export default function About() {
 
             <ScrollReveal delay={0.25}>
               <div className="space-y-4 leading-relaxed" style={{ color: "var(--muted)", fontSize: "1rem" }}>
-                <p>I got into tarot because I was curious — and I stayed because it actually works. Not magic, not fortune-telling. More like holding up a mirror to whatever's already going on inside you.</p>
-                <p>I read cards the way I talk — honestly, directly, and without sugarcoating. If something in the spread is uncomfortable, I'll tell you. If it's hopeful, I'll tell you that too.</p>
-                <p>I've sat with people going through breakups, career pivots, family drama, and moments of just feeling stuck. Every reading is different. Every person deserves something that actually feels personal.</p>
+                <p>It all started with curiosity — and once I learned the cards, something shifted. You awaken to something much higher than the everyday. It's hard to explain until you feel it yourself.</p>
+                <p>No card reads the same story twice. The same card pulled for two different people will tell a completely different tale, because everyone carries their own energy. That's what makes tarot so powerful — it meets you exactly where you are.</p>
+                <p>This tool is an intuitive way of connecting on a higher vibration with tarot cards. It's not about prediction — it's about resonance, reflection, and reading the energy that's already there.</p>
               </div>
             </ScrollReveal>
 
