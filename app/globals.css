@@ -97,17 +97,13 @@ body::after {
   box-shadow: 0 0 60px rgba(11, 191, 187, 0.25);
 }
 
-/* Service row hover */
-.service-row {
-  transition: all 0.25s ease;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+/* Service card hover */
+.service-card {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.service-row:hover {
-  border-bottom-color: var(--teal);
-  padding-left: 1rem;
-}
-.service-row:hover .service-num {
-  color: var(--teal);
+.service-card:hover {
+  border-color: rgba(11,191,187,0.35) !important;
+  box-shadow: 0 8px 32px rgba(11,191,187,0.08), 0 0 0 1px rgba(11,191,187,0.1);
 }
 
 /* Star field */

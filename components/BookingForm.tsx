@@ -5,16 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 
 const readingTypes = [
-  "Single Card Pull",
-  "Three Card Spread",
-  "Celtic Cross",
-  "Love & Relationships",
-  "Career & Purpose",
-  "Year Ahead",
-  "Mind · Body · Spirit",
-  "Monthly Forecast",
-  "Shadow Work",
-  "Intuitive Reading",
+  "30 Minute Tarot Reading — £25",
+  "20 Minute Tarot Reading — £20",
+  "3 Card Reading (Past, Present, Future) — £15",
+  "1 Question Reading (3 Cards) — £10",
+  "Word Affirmation Reading — £15",
+  "Oracle / Angel Card Reading — £15",
+  "Email Reading (Written) — £20",
+  "30 Minute Audio Recording — £25",
 ];
 
 type Status = "idle" | "sending" | "success" | "error";

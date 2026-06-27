@@ -5,44 +5,36 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 
 const services = [
-  { num: "01", title: "30 Minute Reading", desc: "A full tarot and angel card session. Enough time to go deep — multiple questions, layered guidance, and real clarity on what's moving in your life." },
-  { num: "02", title: "20 Minute Reading", desc: "A focused tarot and angel card session. Perfect when you have a clear topic or a couple of questions and want honest, direct insight." },
-  { num: "03", title: "1 Question Reading", desc: "One question, one honest answer. Straight to the point using tarot and angel cards to cut through the noise." },
-  { num: "04", title: "Word Affirmation Reading", desc: "Receive a powerful word affirmation channelled through the cards. A message to carry with you — simple, grounding, and aligned to your energy." },
-  { num: "05", title: "Oracle / Angel Card Reading", desc: "Gentle, uplifting guidance through oracle and angel cards. Perfect for spiritual encouragement, reassurance, and connecting with higher energy." },
-  { num: "06", title: "5 Card Reading", desc: "Five cards laid out to give you a broader picture. Great for understanding a situation from multiple angles — past influences, present energy, and what's ahead." },
-  { num: "07", title: "Audio Recorded Reading", desc: "Your reading delivered as a voice recording via WhatsApp. Listen back anytime — personal, intimate, and on your own time." },
-  { num: "08", title: "Email Reading", desc: "A detailed written reading sent straight to your inbox. Thoughtful, in-depth, and something you can revisit whenever you need it." },
-  { num: "09", title: "Single Card Pull", desc: "One card. One question. Straight to the point. Great for a daily check-in or when you need a clear answer fast." },
-  { num: "10", title: "Three Card Spread", desc: "Past, present, future — or situation, action, outcome. Perfect for decisions or understanding where you're at right now." },
-  { num: "11", title: "Love & Relationships", desc: "For the messy, complicated, beautiful parts of love. Clarity on your relationship, compatibility, or what's blocking connection." },
-  { num: "12", title: "Career & Purpose", desc: "Feeling stuck or unsure of your direction? This one looks at your path, hidden opportunities, and where your energy should go." },
-  { num: "13", title: "Year Ahead", desc: "Twelve cards — one for each month. A roadmap of themes, energy, and what to watch out for in the year coming." },
-  { num: "14", title: "Mind · Body · Spirit", desc: "Three cards, three layers. Your mental state, physical energy, and spiritual alignment right now. Grounding and clarifying." },
-  { num: "15", title: "Shadow Work", desc: "The cards don't lie. This spread digs into patterns, blocks, and hidden parts of yourself that might be running the show without you knowing." },
-  { num: "16", title: "Intuitive Reading", desc: "No agenda, no fixed spread. I read what comes through — raw, unfiltered, and often the most honest session you'll have. Great when you don't know where to start." },
+  { num: "01", title: "30 Minute Tarot Reading", price: "£25", desc: "A full tarot and angel card session. Enough time to go deep — multiple questions, layered guidance, and real clarity on what's moving in your life.", popular: true },
+  { num: "02", title: "20 Minute Tarot Reading", price: "£20", desc: "A focused tarot and angel card session. Perfect when you have a clear topic or a couple of questions and want honest, direct insight.", popular: false },
+  { num: "03", title: "3 Card Reading", price: "£15", desc: "Past, present, future — or situation, action, outcome. Perfect for decisions or understanding where you're at right now.", popular: false },
+  { num: "04", title: "1 Question Reading", price: "£10", desc: "One question, one honest answer using 3 cards. Straight to the point to cut through the noise.", popular: false },
+  { num: "05", title: "Word Affirmation Reading", price: "£15", desc: "Receive a powerful word affirmation channelled through the cards. A message to carry with you — simple, grounding, and aligned to your energy.", popular: false },
+  { num: "06", title: "Oracle / Angel Card Reading", price: "£15", desc: "Gentle, uplifting guidance through oracle and angel cards. Perfect for spiritual encouragement, reassurance, and connecting with higher energy.", popular: false },
+  { num: "07", title: "Email Reading", price: "£20", desc: "A detailed written reading sent straight to your inbox. Thoughtful, in-depth, and something you can revisit whenever you need it.", popular: false },
+  { num: "08", title: "30 Minute Audio Recording", price: "£25", desc: "Your reading delivered as a voice recording via WhatsApp. Listen back anytime — personal, intimate, and on your own time.", popular: false },
 ];
 
 const MOODS = [
-  { emoji: "🌊", label: "Lost & Drifting",   sub: "Not sure where you're headed",  reading: "Intuitive Reading",    hint: "No agenda, no fixed spread. Raw, unfiltered, and often the most honest session when you're feeling lost." },
-  { emoji: "💫", label: "In Love",            sub: "Heart full or complicated",     reading: "Love & Relationships",  hint: "Clarity on connection, compatibility, or what's quietly blocking intimacy." },
-  { emoji: "🔀", label: "At a Crossroads",    sub: "A big decision is looming",     reading: "Three Card Spread",     hint: "Past · Present · Future — see where you've been and what's actually coming." },
-  { emoji: "🔥", label: "Seeking Purpose",    sub: "Work or path feels off",        reading: "Career & Purpose",      hint: "Uncover your direction, hidden opportunities, and where your energy should go." },
-  { emoji: "✨", label: "Just Curious",        sub: "No drama, just vibes",          reading: "Intuitive Reading",     hint: "No agenda, no fixed spread. Raw, unfiltered, and often the most honest session you'll have." },
-  { emoji: "🌙", label: "New Chapter",         sub: "Something big is shifting",     reading: "Year Ahead",            hint: "Twelve cards — one for each month. A roadmap for what's coming." },
+  { emoji: "🌊", label: "Lost & Drifting",   sub: "Not sure where you're headed",  reading: "30 Minute Tarot Reading",  hint: "A full session to go deep — multiple questions, layered guidance, and real clarity. £25" },
+  { emoji: "💫", label: "In Love",            sub: "Heart full or complicated",     reading: "20 Minute Tarot Reading",  hint: "A focused session for matters of the heart. Honest, direct insight on your connection. £20" },
+  { emoji: "🔀", label: "At a Crossroads",    sub: "A big decision is looming",     reading: "3 Card Reading",           hint: "Past · Present · Future — see where you've been and what's actually coming. £15" },
+  { emoji: "🔥", label: "Seeking Purpose",    sub: "Work or path feels off",        reading: "30 Minute Tarot Reading",  hint: "Enough time to explore your path, hidden opportunities, and where your energy should go. £25" },
+  { emoji: "✨", label: "Just Curious",        sub: "No drama, just vibes",          reading: "1 Question Reading",       hint: "One question, one honest answer using 3 cards. Straight to the point. £10" },
+  { emoji: "🌙", label: "New Chapter",         sub: "Something big is shifting",     reading: "Oracle / Angel Card Reading", hint: "Gentle, uplifting guidance through oracle and angel cards for your new beginning. £15" },
 ];
 
-const rowVariants = {
-  hidden: { y: 18, scale: 0.985 },
+const cardVariants = {
+  hidden: { y: 30, opacity: 0, scale: 0.95 },
   visible: (i: number) => ({
-    y: 0, scale: 1,
-    transition: { duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] },
+    y: 0, opacity: 1, scale: 1,
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 export default function Services() {
-  const listRef = useRef<HTMLDivElement>(null);
-  const listInView = useInView(listRef, { once: true, margin: "-60px 0px" });
+  const gridRef = useRef<HTMLDivElement>(null);
+  const gridInView = useInView(gridRef, { once: true, margin: "-60px 0px" });
   const [moodOpen, setMoodOpen] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
 
@@ -73,64 +65,118 @@ export default function Services() {
           </p>
         </ScrollReveal>
 
-        {/* Service rows */}
-        <div ref={listRef}>
-          {/* Mobile: 2-col tile grid */}
-          <div className="grid grid-cols-2 gap-3 sm:hidden">
-            {services.map((s, i) => (
-              <motion.div
-                key={s.num}
-                custom={i}
-                variants={rowVariants}
-                initial="hidden"
-                animate={listInView ? "visible" : "hidden"}
+        {/* Pricing cards grid */}
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {services.map((s, i) => (
+            <motion.div
+              key={s.num}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              animate={gridInView ? "visible" : "hidden"}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              style={{
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                padding: "1.75rem 1.5rem",
+                borderRadius: 20,
+                border: s.popular
+                  ? "1px solid rgba(201,168,76,0.35)"
+                  : "1px solid rgba(255,255,255,0.08)",
+                background: s.popular
+                  ? "linear-gradient(160deg, rgba(201,168,76,0.08) 0%, rgba(7,12,13,0.95) 50%, rgba(11,191,187,0.04) 100%)"
+                  : "rgba(255,255,255,0.02)",
+                overflow: "hidden",
+                transition: "border-color 0.3s",
+              }}
+              className="service-card"
+            >
+              {/* Popular badge */}
+              {s.popular && (
+                <div className="font-display" style={{
+                  position: "absolute", top: 14, right: 14,
+                  fontSize: "0.55rem", letterSpacing: "0.15em", textTransform: "uppercase",
+                  color: "var(--gold)", background: "rgba(201,168,76,0.12)",
+                  padding: "4px 10px", borderRadius: 20,
+                  border: "1px solid rgba(201,168,76,0.2)",
+                }}>
+                  Most Popular
+                </div>
+              )}
+
+              {/* Number */}
+              <span className="font-display" style={{
+                fontSize: "0.6rem", color: s.popular ? "var(--gold)" : "var(--teal)",
+                letterSpacing: "0.12em", marginBottom: 14, opacity: 0.7,
+              }}>
+                {s.num}
+              </span>
+
+              {/* Price */}
+              <div className="font-display" style={{
+                fontSize: "2rem", fontWeight: 700,
+                color: "var(--warm)",
+                lineHeight: 1, marginBottom: 8,
+              }}>
+                {s.price}
+              </div>
+
+              {/* Title */}
+              <h3 className="font-display" style={{
+                fontSize: "1rem", fontWeight: 600,
+                color: "var(--warm)", lineHeight: 1.3,
+                marginBottom: 12,
+              }}>
+                {s.title}
+              </h3>
+
+              {/* Description */}
+              <p style={{
+                color: "var(--muted)", fontSize: "0.82rem",
+                lineHeight: 1.65, flex: 1,
+                marginBottom: 20,
+              }}>
+                {s.desc}
+              </p>
+
+              {/* Book button */}
+              <motion.a
+                href="#book"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="font-display"
                 style={{
-                  padding: "1rem",
-                  borderRadius: 14,
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  background: "rgba(255,255,255,0.02)",
+                  display: "block", textAlign: "center",
+                  padding: "0.7rem 1rem", borderRadius: 10,
+                  fontSize: "0.72rem", fontWeight: 600,
+                  letterSpacing: "0.1em", textTransform: "uppercase",
+                  textDecoration: "none",
+                  background: s.popular
+                    ? "linear-gradient(135deg, var(--teal) 0%, #0AADAA 100%)"
+                    : "transparent",
+                  color: s.popular ? "#070C0D" : "var(--teal)",
+                  border: s.popular ? "none" : "1px solid rgba(11,191,187,0.3)",
+                  transition: "background 0.3s, border-color 0.3s",
+                  cursor: "pointer",
                 }}
               >
-                <span className="font-display" style={{ fontSize: "0.6rem", color: "var(--teal)", letterSpacing: "0.12em" }}>{s.num}</span>
-                <h3 className="font-display" style={{ fontSize: "0.88rem", fontWeight: 600, color: "var(--warm)", marginTop: 6, lineHeight: 1.3 }}>{s.title}</h3>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Desktop: original rows */}
-          <div className="hidden sm:block">
-            {services.map((s, i) => (
-              <motion.div
-                key={s.num}
-                custom={i}
-                variants={rowVariants}
-                initial="hidden"
-                animate={listInView ? "visible" : "hidden"}
-                className="service-row"
-                style={{ display: "flex", alignItems: "flex-start", gap: 24, paddingBlock: 28, cursor: "default" }}
-              >
-                <motion.span
-                  className="service-num font-display"
-                  whileHover={{ textShadow: "0 0 14px rgba(11,191,187,0.9)" }}
-                  style={{ fontSize: "0.72rem", color: "var(--muted)", letterSpacing: "0.12em", paddingTop: 4, minWidth: "2rem", transition: "color 0.2s" }}
-                >
-                  {s.num}
-                </motion.span>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <h3 className="font-display" style={{ fontSize: "1.2rem", fontWeight: 600, color: "var(--warm)", marginBottom: 8 }}>{s.title}</h3>
-                  <p style={{ color: "var(--muted)", fontSize: "0.88rem", lineHeight: 1.65 }}>{s.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                Book Now
+              </motion.a>
+            </motion.div>
+          ))}
         </div>
 
+        {/* Tarot Parties note */}
+        <ScrollReveal delay={0.15} style={{ textAlign: "center", marginTop: "2.5rem" }}>
+          <p style={{ color: "var(--muted)", fontSize: "0.85rem" }}>
+            <span style={{ color: "var(--gold)" }}>✦</span> &nbsp;Tarot Parties available on request&nbsp; <span style={{ color: "var(--gold)" }}>✦</span>
+          </p>
+        </ScrollReveal>
+
         {/* CTA + mood toggle */}
-        <ScrollReveal delay={0.2} style={{ marginTop: "3.5rem" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16, marginBottom: "1.5rem" }}>
-            <motion.a href="#book" className="btn-teal" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              Book a Session
-            </motion.a>
+        <ScrollReveal delay={0.2} style={{ marginTop: "2.5rem" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: 16, marginBottom: "1.5rem" }}>
             <motion.button
               onClick={() => { setMoodOpen((o) => !o); setSelected(null); }}
               whileHover={{ scale: 1.02 }}
@@ -149,7 +195,7 @@ export default function Services() {
               >
                 ✦
               </motion.span>
-              Not sure which one?
+              Not sure which one? Let the cards guide you.
             </motion.button>
           </div>
 
