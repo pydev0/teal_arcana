@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import CardPull from "@/components/CardPull";
@@ -11,8 +10,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
+    <main style={{ position: "relative", zIndex: 1, background: "rgba(0,0,0,0.25)", backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)" }}>
       <Hero />
       <About />
       <CardPull />

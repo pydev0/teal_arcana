@@ -8,9 +8,9 @@ export const metadata = {
 
 export default function CardsPage() {
   return (
-    <>
+    <div style={{ position: "relative", zIndex: 1 }}>
       <Navbar />
       <CardDraw />
-    </>
+    </div>
   );
 }

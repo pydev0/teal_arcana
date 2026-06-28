@@ -22,9 +22,9 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(7,12,13,0.92)" : "transparent",
+        background: scrolled ? "rgba(0,0,0,0.4)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "none",
       }}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -82,7 +82,7 @@ export default function Navbar() {
             exit={{ y: -8, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="md:hidden px-6 pb-6 pt-2"
-            style={{ background: "rgba(7,12,13,0.97)", borderTop: "1px solid rgba(255,255,255,0.05)" }}
+            style={{ background: "rgba(0,0,0,0.85)", borderTop: "1px solid rgba(255,255,255,0.1)" }}
           >
             <ul className="flex flex-col gap-5">
               {links.map((l) => (
