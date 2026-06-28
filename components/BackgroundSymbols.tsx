@@ -226,7 +226,6 @@ export function BackgroundSymbols() {
           <img
             src="/tree.png"
             alt=""
-            className="background-tree"
             style={{
               width: "100vw",
               height: "100vh",
