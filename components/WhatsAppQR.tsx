@@ -14,7 +14,7 @@ export default function WhatsAppQR() {
   const qrInView = useInView(qrRef, { once: true, margin: "-60px 0px" });
 
   return (
-    <section className="py-28 px-6 relative overflow-hidden">
+    <section className="py-20 px-6 relative overflow-hidden section-backdrop">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div
@@ -46,7 +46,7 @@ export default function WhatsAppQR() {
                   Reach Me on{" "}
                   <span className="gradient-text">WhatsApp</span>
                 </h2>
-                <p style={{ color: "var(--muted)", fontSize: "0.95rem", maxWidth: 360, lineHeight: 1.65, marginBottom: "1.5rem" }}>
+                <p style={{ color: "var(--muted)", fontSize: "clamp(0.95rem, 2vw, 1.1rem)", maxWidth: 360, lineHeight: 1.75, marginBottom: "1.5rem" }}>
                   Scan the QR code to open a WhatsApp chat directly. Ask anything — I'm happy to answer before you book.
                 </p>
                 <motion.a
@@ -87,7 +87,7 @@ export default function WhatsAppQR() {
                     }}
                   />
                   <div style={{ padding: 14, borderRadius: 16, background: "#fff" }}>
-                    <QRCode value={whatsappURL} size={148} bgColor="#ffffff" fgColor="#070C0D" />
+                    <QRCode value={whatsappURL} size={148} bgColor="#ffffff" fgColor="#1A1A1A" />
                   </div>
                 </motion.div>
                 <p style={{ fontSize: "0.7rem", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>

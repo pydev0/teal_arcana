@@ -39,7 +39,7 @@ export default function Services() {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <section id="services" className="relative py-28 px-6 overflow-hidden">
+    <section id="services" className="relative py-20 px-6 overflow-hidden section-backdrop">
       <div style={{
         position: "absolute", right: "-5%", bottom: "10%",
         width: 380, height: 380, borderRadius: "50%",
@@ -60,7 +60,7 @@ export default function Services() {
           <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 700, lineHeight: 1.05, marginBottom: "1rem" }}>
             Pick what <span className="gradient-text">calls to you.</span>
           </h2>
-          <p style={{ color: "var(--muted)", fontSize: "0.9rem", lineHeight: 1.6, maxWidth: 400, margin: "0 auto" }}>
+          <p style={{ color: "var(--muted)", fontSize: "clamp(0.95rem, 2vw, 1.1rem)", lineHeight: 1.7, maxWidth: 400, margin: "0 auto" }}>
             Every session is 1-on-1. No scripts, no copy-paste answers. Just you, me, and the cards.
           </p>
         </ScrollReveal>
@@ -79,14 +79,14 @@ export default function Services() {
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
-                padding: "1.75rem 1.5rem",
+                padding: "clamp(1.25rem, 3vw, 1.75rem) clamp(1rem, 2.5vw, 1.5rem)",
                 borderRadius: 20,
                 border: s.popular
                   ? "1px solid rgba(201,168,76,0.35)"
-                  : "1px solid rgba(255,255,255,0.08)",
+                  : "1px solid rgba(255,255,255,0.15)",
                 background: s.popular
-                  ? "linear-gradient(160deg, rgba(201,168,76,0.08) 0%, rgba(7,12,13,0.95) 50%, rgba(11,191,187,0.04) 100%)"
-                  : "rgba(255,255,255,0.02)",
+                  ? "linear-gradient(160deg, rgba(255,215,0,0.15) 0%, rgba(0,0,0,0.45) 50%, rgba(15,255,248,0.08) 100%)"
+                  : "rgba(0,0,0,0.35)",
                 overflow: "hidden",
                 transition: "border-color 0.3s",
               }}
@@ -133,8 +133,8 @@ export default function Services() {
 
               {/* Description */}
               <p style={{
-                color: "var(--muted)", fontSize: "0.82rem",
-                lineHeight: 1.65, flex: 1,
+                color: "var(--muted)", fontSize: "0.95rem",
+                lineHeight: 1.75, flex: 1,
                 marginBottom: 20,
               }}>
                 {s.desc}
@@ -155,7 +155,7 @@ export default function Services() {
                   background: s.popular
                     ? "linear-gradient(135deg, var(--teal) 0%, #0AADAA 100%)"
                     : "transparent",
-                  color: s.popular ? "#070C0D" : "var(--teal)",
+                  color: s.popular ? "#FFFFFF" : "var(--teal)",
                   border: s.popular ? "none" : "1px solid rgba(11,191,187,0.3)",
                   transition: "background 0.3s, border-color 0.3s",
                   cursor: "pointer",
@@ -212,8 +212,8 @@ export default function Services() {
                 <div style={{
                   padding: "2rem",
                   borderRadius: 18,
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "rgba(255,255,255,0.05)",
                   marginBottom: "1rem",
                 }}>
                   <p className="font-display" style={{ fontSize: "0.8rem", color: "var(--teal)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "1.5rem" }}>
@@ -229,8 +229,8 @@ export default function Services() {
                         whileTap={{ scale: 0.97 }}
                         style={{
                           textAlign: "left", padding: "0.85rem 1rem", borderRadius: 12, cursor: "pointer",
-                          border: selected === i ? "1px solid rgba(11,191,187,0.5)" : "1px solid rgba(255,255,255,0.07)",
-                          background: selected === i ? "rgba(11,191,187,0.07)" : "rgba(255,255,255,0.02)",
+                          border: selected === i ? "1px solid rgba(11,191,187,0.5)" : "1px solid rgba(255,255,255,0.1)",
+                          background: selected === i ? "rgba(11,191,187,0.07)" : "rgba(255,255,255,0.05)",
                           transition: "border-color 0.2s, background 0.2s",
                         }}
                       >
@@ -238,7 +238,7 @@ export default function Services() {
                         <p className="font-display" style={{ fontSize: "0.8rem", fontWeight: 600, marginBottom: "0.2rem", color: selected === i ? "var(--teal)" : "var(--warm)", transition: "color 0.2s" }}>
                           {mood.label}
                         </p>
-                        <p style={{ fontSize: "0.7rem", color: "var(--muted)" }}>{mood.sub}</p>
+                        <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{mood.sub}</p>
                       </motion.button>
                     ))}
                   </div>
@@ -261,7 +261,7 @@ export default function Services() {
                         }}
                       >
                         <div>
-                          <p style={{ fontSize: "0.65rem", letterSpacing: "0.3em", color: "var(--teal)", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+                          <p style={{ fontSize: "0.75rem", letterSpacing: "0.3em", color: "var(--teal)", textTransform: "uppercase", marginBottom: "0.4rem" }}>
                             Recommended for you
                           </p>
                           <h3 className="font-display" style={{ fontSize: "1.3rem", fontWeight: 700, color: "var(--warm)", marginBottom: "0.4rem" }}>

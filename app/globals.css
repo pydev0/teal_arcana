@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --teal:    #0BBFBB;
-  --gold:    #C9A84C;
-  --dark:    #070C0D;
-  --surface: #0D1517;
-  --warm:    #EDE8DF;
-  --muted:   #7A8A8A;
+  --teal:    #0FFFF8;
+  --gold:    #FFD700;
+  --dark:    #F5F3EF;
+  --surface: rgba(0,0,0,0.25);
+  --warm:    #FFF5D6;
+  --muted:   #FFFFFF;
 }
 
 * { scroll-behavior: smooth; box-sizing: border-box; }
@@ -20,29 +20,91 @@
   .px-6  { padding-left: 1rem !important; padding-right: 1rem !important; }
 }
 
-body {
-  background: var(--dark);
-  color: var(--warm);
-  font-family: var(--font-inter), Arial, sans-serif;
+/* Lighter text-shadow on mobile */
+@media (max-width: 640px) {
+  .section-backdrop h1,
+  .section-backdrop h2,
+  .section-backdrop h3,
+  .section-backdrop p,
+  .section-backdrop span,
+  .section-backdrop blockquote,
+  .section-backdrop a:not(.btn-teal):not(.btn-outline),
+  .section-backdrop li {
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4), 0 0 8px rgba(0,0,0,0.25);
+  }
 }
 
-/* Diamond card-back pattern — historical tarot origin reference */
+body {
+  background: #FAFAF8;
+  color: #FFF5D6;
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Text shadow only on content over the tree background */
+.section-backdrop h1,
+.section-backdrop h2,
+.section-backdrop h3,
+.section-backdrop p,
+.section-backdrop span,
+.section-backdrop blockquote,
+.section-backdrop a:not(.btn-teal):not(.btn-outline),
+.section-backdrop li {
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.4);
+}
+
+/* No shadow on interactive elements */
+.btn-teal,
+.btn-outline,
+input,
+select,
+textarea,
+button {
+  text-shadow: none !important;
+}
+
+/* Rich layered background — ambient cosmic gradients + diamond pattern */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background-image:
+  background:
+    /* Teal nebula - top left */
+    radial-gradient(ellipse 600px 500px at 8% 12%, rgba(10,158,155,0.08) 0%, transparent 70%),
+    /* Gold nebula - top right */
+    radial-gradient(ellipse 500px 400px at 85% 8%, rgba(184,146,58,0.07) 0%, transparent 70%),
+    /* Deep teal glow - center left */
+    radial-gradient(ellipse 700px 600px at 5% 50%, rgba(10,158,155,0.05) 0%, transparent 65%),
+    /* Gold warmth - center right */
+    radial-gradient(ellipse 500px 500px at 92% 45%, rgba(184,146,58,0.05) 0%, transparent 65%),
+    /* Teal pool - bottom */
+    radial-gradient(ellipse 800px 400px at 50% 95%, rgba(10,158,155,0.06) 0%, transparent 60%),
+    /* Gold accent - bottom left */
+    radial-gradient(ellipse 400px 350px at 15% 85%, rgba(184,146,58,0.05) 0%, transparent 65%),
+    /* Diamond card-back pattern */
     repeating-linear-gradient(
       45deg,
-      rgba(11,191,187,0.04) 0px, rgba(11,191,187,0.04) 1px,
-      transparent 1px, transparent 28px
+      rgba(10,158,155,0.04) 0px, rgba(10,158,155,0.04) 1px,
+      transparent 1px, transparent 32px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(11,191,187,0.04) 0px, rgba(11,191,187,0.04) 1px,
-      transparent 1px, transparent 28px
+      rgba(10,158,155,0.04) 0px, rgba(10,158,155,0.04) 1px,
+      transparent 1px, transparent 32px
+    ),
+    /* Secondary finer diamond overlay */
+    repeating-linear-gradient(
+      45deg,
+      rgba(184,146,58,0.025) 0px, rgba(184,146,58,0.025) 1px,
+      transparent 1px, transparent 18px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(184,146,58,0.025) 0px, rgba(184,146,58,0.025) 1px,
+      transparent 1px, transparent 18px
     );
 }
 
@@ -52,8 +114,8 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 9999;
-  opacity: 0.035;
+  z-index: 9998;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 180px;
 }
@@ -75,14 +137,14 @@ body::after {
 
 /* Gradient heading */
 .gradient-text {
-  background: linear-gradient(120deg, var(--teal) 0%, #6EE7DF 50%, var(--teal) 100%);
+  background: linear-gradient(120deg, var(--teal) 0%, #6EFFF8 50%, var(--teal) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gold-gradient {
-  background: linear-gradient(120deg, var(--gold), #E8C97A, var(--gold));
+  background: linear-gradient(120deg, var(--gold), #FFE66D, var(--gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,59 +164,23 @@ body::after {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .service-card:hover {
-  border-color: rgba(11,191,187,0.35) !important;
-  box-shadow: 0 8px 32px rgba(11,191,187,0.08), 0 0 0 1px rgba(11,191,187,0.1);
+  border-color: rgba(10,158,155,0.35) !important;
+  box-shadow: 0 8px 32px rgba(10,158,155,0.1), 0 0 0 1px rgba(10,158,155,0.12);
 }
 
 /* Star field */
 .star-field {
   background-image:
-    radial-gradient(1px 1px at 8%  15%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 65%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 45% 8%,  rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 65% 82%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 80% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 88%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 48%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 92% 72%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 38% 30%, rgba(11,191,187,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 72% 20%, rgba(11,191,187,0.4) 0%, transparent 100%);
-}
-
-/* Floating symbol wander animations — large cross-page movement */
-@keyframes wander1 {
-  0%   { transform: translate(0px,    0px)    rotate(0deg);   }
-  20%  { transform: translate(120px,  -90px)  rotate(12deg);  }
-  40%  { transform: translate(-70px,  -200px) rotate(-8deg);  }
-  60%  { transform: translate(200px,  -60px)  rotate(20deg);  }
-  80%  { transform: translate(30px,   130px)  rotate(-5deg);  }
-  100% { transform: translate(0px,    0px)    rotate(0deg);   }
-}
-@keyframes wander2 {
-  0%   { transform: translate(0px,    0px)    rotate(0deg);   }
-  25%  { transform: translate(-160px, 80px)   rotate(-18deg); }
-  50%  { transform: translate(90px,   220px)  rotate(12deg);  }
-  75%  { transform: translate(-110px, -120px) rotate(-22deg); }
-  100% { transform: translate(0px,    0px)    rotate(0deg);   }
-}
-@keyframes wander3 {
-  0%   { transform: translate(0px,    0px)    rotate(0deg);   }
-  30%  { transform: translate(220px,  110px)  rotate(28deg);  }
-  60%  { transform: translate(-90px,  -170px) rotate(-16deg); }
-  100% { transform: translate(0px,    0px)    rotate(0deg);   }
-}
-@keyframes wander4 {
-  0%   { transform: translate(0px,    0px)    rotate(0deg);   }
-  20%  { transform: translate(-200px, -80px)  rotate(-20deg); }
-  45%  { transform: translate(110px,  150px)  rotate(14deg);  }
-  70%  { transform: translate(70px,   -210px) rotate(-10deg); }
-  100% { transform: translate(0px,    0px)    rotate(0deg);   }
-}
-@keyframes wander5 {
-  0%   { transform: translate(0px,    0px)    rotate(0deg);   }
-  35%  { transform: translate(170px,  -170px) rotate(22deg);  }
-  65%  { transform: translate(-140px, 100px)  rotate(-14deg); }
-  100% { transform: translate(0px,    0px)    rotate(0deg);   }
+    radial-gradient(1px 1px at 8%  15%, rgba(10,158,155,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 65%, rgba(184,146,58,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 8%,  rgba(10,158,155,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 82%, rgba(184,146,58,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 35%, rgba(10,158,155,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 88%, rgba(184,146,58,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 48%, rgba(10,158,155,0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 72%, rgba(184,146,58,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 38% 30%, rgba(10,158,155,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 72% 20%, rgba(10,158,155,0.3) 0%, transparent 100%);
 }
 
 /* Typewriter cursor blink */
@@ -251,7 +277,7 @@ body::after {
 /* Button styles */
 .btn-teal {
   background: var(--teal);
-  color: #070C0D;
+  color: #FFFFFF;
   font-weight: 700;
   padding: 0.85rem 2.2rem;
   border-radius: 9999px;
@@ -267,7 +293,7 @@ body::after {
 }
 
 .btn-outline {
-  border: 1px solid rgba(11,191,187,0.4);
+  border: 1px solid rgba(15,255,248,0.5);
   color: var(--teal);
   padding: 0.85rem 2.2rem;
   border-radius: 9999px;
@@ -278,6 +304,13 @@ body::after {
 .btn-outline:hover {
   border-color: var(--teal);
   background: rgba(11,191,187,0.08);
+}
+
+/* Section backdrop — readable text over tree background */
+.section-backdrop {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* Dual-row testimonial marquee */
@@ -300,4 +333,24 @@ body::after {
 .marquee-left:hover,
 .marquee-right:hover {
   animation-play-state: paused;
+}
+
+/* Responsive review cards */
+.review-card {
+  width: 300px;
+  min-width: 300px;
+}
+@media (max-width: 640px) {
+  .review-card {
+    width: 260px;
+    min-width: 260px;
+  }
+}
+
+/* Reduce butterfly visibility on mobile */
+@media (max-width: 640px) {
+  .butterfly-layer {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
 }

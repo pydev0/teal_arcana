@@ -34,24 +34,23 @@ function Stars() {
 function ReviewCard({ name, text }: { name: string; text: string }) {
   return (
     <div
+      className="review-card"
       style={{
         background: "var(--surface)",
-        border: "1px solid rgba(255,255,255,0.06)",
+        border: "1px solid rgba(255,255,255,0.12)",
         borderRadius: 14,
         padding: "1.1rem 1.2rem",
         display: "flex",
         flexDirection: "column",
         gap: 4,
-        width: 300,
-        minWidth: 300,
         flexShrink: 0,
       }}
     >
       <Stars />
-      <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.6, flex: 1, fontStyle: "italic" }}>
+      <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.7, flex: 1, fontStyle: "italic" }}>
         &ldquo;{text}&rdquo;
       </p>
-      <p style={{ color: "var(--warm)", fontSize: "0.72rem", marginTop: 10, fontWeight: 600 }}>
+      <p style={{ color: "var(--warm)", fontSize: "0.78rem", marginTop: 10, fontWeight: 600 }}>
         — {name}
       </p>
     </div>
@@ -72,7 +71,7 @@ function MarqueeRow({ items, direction }: { items: typeof topRow; direction: "le
         className={direction === "left" ? "marquee-left" : "marquee-right"}
         style={{
           display: "flex",
-          gap: 16,
+          gap: "clamp(12px, 2vw, 16px)",
           width: "max-content",
         }}
       >
@@ -89,7 +88,7 @@ export default function Testimonials() {
   useInView(ref, { once: true, margin: "-60px 0px" });
 
   return (
-    <section id="testimonials" className="relative py-28 overflow-hidden" ref={ref}>
+    <section id="testimonials" className="relative py-20 overflow-hidden section-backdrop" ref={ref}>
       {/* Background orb */}
       <div
         style={{
@@ -104,7 +103,7 @@ export default function Testimonials() {
         {/* Label */}
         <ScrollReveal style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: "1.5rem" }}>
           <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
-          <span style={{ fontSize: "0.7rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>Testimonials</span>
+          <span style={{ fontSize: "0.75rem", letterSpacing: "0.35em", color: "var(--teal)", textTransform: "uppercase" }}>Testimonials</span>
           <div style={{ height: 1, width: 30, background: "var(--teal)", opacity: 0.5 }} />
         </ScrollReveal>
 

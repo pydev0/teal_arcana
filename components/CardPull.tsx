@@ -121,7 +121,7 @@ export default function CardPull() {
   }
 
   return (
-    <section className="py-28 px-6 relative overflow-hidden">
+    <section className="py-20 px-6 relative overflow-hidden section-backdrop">
       <div style={{ position: "absolute", left: "8%", top: "15%", width: 420, height: 420, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", filter: "blur(55px)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", right: "5%", bottom: "20%", width: 360, height: 360, borderRadius: "50%", background: "radial-gradient(circle, rgba(11,191,187,0.07) 0%, transparent 70%)", filter: "blur(55px)", pointerEvents: "none" }} />
 
@@ -138,7 +138,7 @@ export default function CardPull() {
           <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
             Pick a <span className="gradient-text">card.</span>
           </h2>
-          <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.65, maxWidth: 340, margin: "0 auto" }}>
+          <p style={{ color: "var(--muted)", fontSize: "clamp(0.95rem, 2vw, 1.1rem)", lineHeight: 1.75, maxWidth: 340, margin: "0 auto" }}>
             {chosen === null
               ? "Focus on a question. When you're ready, choose one."
               : "Your card has spoken. Book a reading for the full picture."}
@@ -190,8 +190,8 @@ export default function CardPull() {
                         backfaceVisibility: "hidden",
                         borderRadius: 12,
                         border: "1.5px solid rgba(11,191,187,0.3)",
-                        background: "linear-gradient(160deg, #0E1619 0%, #070C0D 100%)",
-                        boxShadow: "0 18px 45px rgba(0,0,0,0.7)",
+                        background: "linear-gradient(160deg, #1A1A1A 0%, #0A0A0A 100%)",
+                        boxShadow: "0 18px 45px rgba(0,0,0,0.12)",
                         overflow: "hidden",
                         display: "flex", alignItems: "center", justifyContent: "center",
                       }}>
@@ -213,7 +213,7 @@ export default function CardPull() {
                         borderRadius: 12,
                         overflow: "hidden",
                         border: "1.5px solid rgba(201,168,76,0.5)",
-                        boxShadow: "0 24px 60px rgba(0,0,0,0.8), 0 0 40px rgba(201,168,76,0.22)",
+                        boxShadow: "0 24px 60px rgba(0,0,0,0.15), 0 0 40px rgba(184,146,58,0.15)",
                       }}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={IMAGES[card.id]} alt={card.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
@@ -280,11 +280,11 @@ export default function CardPull() {
                 {chosenCard.keywords.map(kw => (
                   <span key={kw} style={{
                     fontSize: "0.68rem", padding: "0.2rem 0.7rem", borderRadius: 99,
-                    border: "1px solid rgba(255,255,255,0.08)", color: "var(--muted)", letterSpacing: "0.05em",
+                    border: "1px solid rgba(0,0,0,0.08)", color: "var(--muted)", letterSpacing: "0.05em",
                   }}>{kw}</span>
                 ))}
               </div>
-              <p style={{ color: "var(--warm)", fontSize: "1.05rem", lineHeight: 1.8, maxWidth: 500, margin: "0 auto 2rem", fontStyle: "italic" }}>
+              <p style={{ color: "var(--warm)", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: 500, margin: "0 auto 2rem", fontStyle: "italic" }}>
                 &ldquo;{chosenCard.meaning}&rdquo;
               </p>
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
@@ -314,11 +314,11 @@ export default function CardPull() {
         {/* Display cards — rest of the shuffled deck */}
         <ScrollReveal delay={0.2}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "1.5rem" }}>
-            <div style={{ height: 1, flex: 1, background: "rgba(255,255,255,0.05)" }} />
+            <div style={{ height: 1, flex: 1, background: "rgba(0,0,0,0.06)" }} />
             <span style={{ fontSize: "0.65rem", letterSpacing: "0.3em", color: "var(--muted)", textTransform: "uppercase" }}>
               From the Major Arcana
             </span>
-            <div style={{ height: 1, flex: 1, background: "rgba(255,255,255,0.05)" }} />
+            <div style={{ height: 1, flex: 1, background: "rgba(0,0,0,0.06)" }} />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {displayCards.map((card, i) => (
@@ -327,7 +327,7 @@ export default function CardPull() {
                 initial={{ y: 24, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -6, boxShadow: "0 20px 50px rgba(0,0,0,0.6), 0 0 20px rgba(201,168,76,0.15)" }}
+                whileHover={{ y: -6, boxShadow: "0 20px 50px rgba(0,0,0,0.12), 0 0 20px rgba(184,146,58,0.1)" }}
                 style={{
                   borderRadius: 12,
                   overflow: "hidden",
@@ -340,7 +340,7 @@ export default function CardPull() {
                 <img src={IMAGES[card.id]} alt={card.name} style={{ width: "100%", aspectRatio: "3/5.2", objectFit: "cover", display: "block" }} />
                 <div style={{
                   padding: "0.6rem 0.75rem",
-                  background: "rgba(7,12,13,0.9)",
+                  background: "rgba(250,250,248,0.9)",
                   borderTop: "1px solid rgba(201,168,76,0.12)",
                   textAlign: "center",
                 }}>

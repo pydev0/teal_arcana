@@ -26,7 +26,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-28 px-6 relative overflow-hidden">
+    <section className="py-20 px-6 relative overflow-hidden section-backdrop">
       <div style={{
         position: "absolute", right: 0, top: "20%",
         width: 320, height: 320, borderRadius: "50%",
@@ -82,7 +82,7 @@ export default function HowItWorks() {
                     </h3>
                     <span style={{ fontSize: "0.9rem", color: "rgba(11,191,187,0.4)" }}>{step.symbol}</span>
                   </div>
-                  <p style={{ color: "var(--muted)", fontSize: "0.88rem", lineHeight: 1.75 }}>
+                  <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.8 }}>
                     {step.desc}
                   </p>
                 </div>
@@ -101,14 +101,14 @@ export default function HowItWorks() {
                 className="p-9"
                 style={{
                   position: "relative", borderRadius: 20,
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  background: "rgba(0,0,0,0.35)",
                   height: "100%", overflow: "hidden",
                 }}
               >
                 <div className="font-display" style={{
                   position: "absolute", right: "1rem", bottom: "0.5rem",
-                  fontSize: "5rem", fontWeight: 700, lineHeight: 1,
+                  fontSize: "clamp(3rem, 5vw, 5rem)", fontWeight: 700, lineHeight: 1,
                   color: "rgba(11,191,187,0.05)", userSelect: "none", pointerEvents: "none",
                 }}>
                   {step.num}
@@ -123,7 +123,7 @@ export default function HowItWorks() {
                 <h3 className="font-display" style={{ fontSize: "1.1rem", fontWeight: 600, color: "var(--warm)", marginBottom: "0.75rem" }}>
                   {step.title}
                 </h3>
-                <p style={{ color: "var(--muted)", fontSize: "0.88rem", lineHeight: 1.75 }}>
+                <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.8 }}>
                   {step.desc}
                 </p>
               </motion.div>

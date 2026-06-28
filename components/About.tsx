@@ -13,7 +13,7 @@ export default function About() {
   const statsInView = useInView(statsRef, { once: true, margin: "-60px 0px" });
 
   return (
-    <section id="about" className="relative py-28 px-6 overflow-hidden">
+    <section id="about" className="relative py-20 px-6 overflow-hidden section-backdrop">
       <motion.div
         className="anim-orb-pulse"
         style={{
@@ -40,7 +40,7 @@ export default function About() {
             <motion.div
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}
+              style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(4px, 1vw, 8px)" }}
             >
               {[1, 2, 3, 4].map((n, i) => (
                 <motion.div
@@ -49,8 +49,8 @@ export default function About() {
                   transition={{ duration: 0.6, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   style={{
                     borderRadius: 12, overflow: "hidden", aspectRatio: "3/4",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    boxShadow: "0 4px 20px rgba(255,255,255,0.15)",
                     position: "relative",
                   }}
                 >
@@ -88,7 +88,7 @@ export default function About() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.25}>
-              <div className="space-y-4 leading-relaxed" style={{ color: "var(--muted)", fontSize: "1rem" }}>
+              <div className="space-y-4 leading-relaxed" style={{ color: "var(--muted)", fontSize: "clamp(0.95rem, 2vw, 1.15rem)" }}>
                 <p>It all started with curiosity — and once I learned the cards, something shifted. You awaken to something much higher than the everyday. It's hard to explain until you feel it yourself.</p>
                 <p>No card reads the same story twice. The same card pulled for two different people will tell a completely different tale, because everyone carries their own energy. That's what makes tarot so powerful — it meets you exactly where you are.</p>
                 <p>This tool is an intuitive way of connecting on a higher vibration with tarot cards. It's not about prediction — it's about resonance, reflection, and reading the energy that's already there.</p>
@@ -99,7 +99,7 @@ export default function About() {
             <div
               ref={statsRef}
               className="grid grid-cols-3 gap-3 sm:gap-6 mt-10 pt-8"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+              style={{ borderTop: "1px solid rgba(255,255,255,0.15)" }}
             >
               {[
                 { value: "4+", label: "Years Reading" },
@@ -111,8 +111,8 @@ export default function About() {
                   animate={statsInView ? { scale: 1, y: 0 } : { scale: 0.7, y: 12 }}
                   transition={{ duration: 0.55, delay: 0.3 + i * 0.1, type: "spring", stiffness: 180, damping: 14 }}
                 >
-                  <p className="font-display" style={{ fontSize: "2rem", fontWeight: 700, color: "var(--teal)" }}>{s.value}</p>
-                  <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginTop: 4 }}>{s.label}</p>
+                  <p className="font-display" style={{ fontSize: "clamp(1.4rem, 4vw, 2rem)", fontWeight: 700, color: "var(--teal)" }}>{s.value}</p>
+                  <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginTop: 4 }}>{s.label}</p>
                 </motion.div>
               ))}
             </div>

@@ -44,12 +44,12 @@ export default function BookingForm() {
 
   const fieldStyle = (name: string) => ({
     width: "100%",
-    background: isFocused(name) ? "rgba(11,191,187,0.04)" : "rgba(255,255,255,0.03)",
-    border: `1px solid ${isFocused(name) ? "rgba(11,191,187,0.45)" : "rgba(255,255,255,0.08)"}`,
+    background: isFocused(name) ? "rgba(11,191,187,0.04)" : "rgba(255,255,255,0.06)",
+    border: `1px solid ${isFocused(name) ? "rgba(11,191,187,0.45)" : "rgba(255,255,255,0.12)"}`,
     borderRadius: 12,
     padding: "0.85rem 1.1rem",
     color: "var(--warm)",
-    fontSize: "0.875rem",
+    fontSize: "0.95rem",
     outline: "none",
     transition: "border-color 0.25s, background 0.25s, box-shadow 0.25s",
     boxShadow: isFocused(name) ? "0 0 18px rgba(11,191,187,0.08)" : "none",
@@ -58,7 +58,7 @@ export default function BookingForm() {
   });
 
   return (
-    <section id="book" className="py-28 px-6 relative overflow-hidden">
+    <section id="book" className="py-20 px-6 relative overflow-hidden section-backdrop">
       {/* Orbs */}
       <div style={{ position: "absolute", left: "-5%", top: "20%", width: 380, height: 380, borderRadius: "50%", background: "radial-gradient(circle, rgba(11,191,187,0.07) 0%, transparent 70%)", filter: "blur(50px)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", right: "-5%", bottom: "15%", width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)", filter: "blur(50px)", pointerEvents: "none" }} />
@@ -76,7 +76,7 @@ export default function BookingForm() {
           <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 700, marginBottom: "0.75rem" }}>
             Book a <span className="gradient-text">Reading</span>
           </h2>
-          <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: 1.65 }}>
+          <p style={{ color: "var(--muted)", fontSize: "clamp(0.95rem, 2vw, 1.1rem)", lineHeight: 1.75 }}>
             The cards are waiting. Fill in your details and I'll reach out within 24 hours.
           </p>
         </ScrollReveal>
@@ -87,7 +87,7 @@ export default function BookingForm() {
             position: "relative",
             borderRadius: 24,
             border: "1px solid rgba(11,191,187,0.12)",
-            background: "linear-gradient(135deg, rgba(11,191,187,0.04) 0%, rgba(7,12,13,0.9) 60%, rgba(201,168,76,0.03) 100%)",
+            background: "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.3) 100%)",
             overflow: "hidden",
           }}>
             {/* Corner ornaments */}
@@ -142,7 +142,7 @@ export default function BookingForm() {
                       { id: "email", label: "Email Address",  type: "email", placeholder: "jane@example.com" },
                     ].map(f => (
                       <div key={f.id} style={{ display: "flex", flexDirection: "column", gap: 7 }}>
-                        <label style={{ fontSize: "0.72rem", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }} htmlFor={f.id}>
+                        <label style={{ fontSize: "0.78rem", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }} htmlFor={f.id}>
                           {f.label}
                         </label>
                         <input
@@ -160,7 +160,7 @@ export default function BookingForm() {
 
                   {/* Reading type */}
                   <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
-                    <label style={{ fontSize: "0.72rem", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }} htmlFor="reading">
+                    <label style={{ fontSize: "0.78rem", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }} htmlFor="reading">
                       Type of Reading
                     </label>
                     <div style={{ position: "relative" }}>
@@ -175,7 +175,7 @@ export default function BookingForm() {
                           Choose your reading...
                         </option>
                         {readingTypes.map(t => (
-                          <option key={t} value={t} style={{ background: "#0D1517", color: "var(--warm)" }}>{t}</option>
+                          <option key={t} value={t} style={{ background: "#FAFAF8", color: "var(--warm)" }}>{t}</option>
                         ))}
                       </select>
                       {/* Custom chevron */}
@@ -187,7 +187,7 @@ export default function BookingForm() {
 
                   {/* Message */}
                   <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
-                    <label style={{ fontSize: "0.72rem", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }} htmlFor="message">
+                    <label style={{ fontSize: "0.78rem", color: "var(--muted)", letterSpacing: "0.1em", textTransform: "uppercase" }} htmlFor="message">
                       Your Question <span style={{ color: "rgba(122,138,138,0.45)", textTransform: "none" }}>(optional)</span>
                     </label>
                     <textarea
@@ -215,7 +215,7 @@ export default function BookingForm() {
                     style={{
                       width: "100%", padding: "1rem",
                       background: "linear-gradient(135deg, var(--teal) 0%, #0AADAA 100%)",
-                      color: "#070C0D", fontWeight: 700, fontSize: "0.88rem",
+                      color: "#FFFFFF", fontWeight: 700, fontSize: "0.88rem",
                       letterSpacing: "0.08em", textTransform: "uppercase",
                       borderRadius: 12, cursor: status === "sending" ? "not-allowed" : "pointer",
                       opacity: status === "sending" ? 0.6 : 1,
@@ -234,7 +234,7 @@ export default function BookingForm() {
                     ) : "Request a Reading ✦"}
                   </motion.button>
 
-                  <p style={{ fontSize: "0.7rem", color: "rgba(122,138,138,0.5)", textAlign: "center", letterSpacing: "0.04em" }}>
+                  <p style={{ fontSize: "0.75rem", color: "rgba(122,138,138,0.5)", textAlign: "center", letterSpacing: "0.04em" }}>
                     ✦ &nbsp; Responses within 24 hours &nbsp; · &nbsp; Your information stays private &nbsp; ✦
                   </p>
                 </motion.form>

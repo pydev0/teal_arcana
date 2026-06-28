@@ -63,7 +63,7 @@ function TarotCard({ src, name, rotate, left, top, z, delay, floatDur }: typeof 
           overflow: "hidden",
           position: "relative",
           border: "2px solid rgba(11,191,187,0.35)",
-          boxShadow: "0 28px 70px rgba(0,0,0,0.75), 0 0 40px rgba(11,191,187,0.12), inset 0 0 0 1px rgba(255,255,255,0.05)",
+          boxShadow: "0 28px 70px rgba(0,0,0,0.15), 0 0 40px rgba(10,158,155,0.1), inset 0 0 0 1px rgba(0,0,0,0.05)",
         }}
       >
         {/* Real card image */}
@@ -100,7 +100,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden star-field"
+      className="relative min-h-screen flex items-center overflow-hidden star-field section-backdrop"
     >
       {/* Teal orb — shifted left to complement cards on right */}
       <motion.div
@@ -109,7 +109,7 @@ export default function Hero() {
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         style={{
           position: "absolute", right: "8%", top: "15%",
-          width: 420, height: 420, borderRadius: "50%",
+          width: "clamp(200px, 40vw, 420px)", height: "clamp(200px, 40vw, 420px)", borderRadius: "50%",
           background: "radial-gradient(circle, rgba(11,191,187,0.14) 0%, transparent 70%)",
           filter: "blur(50px)", pointerEvents: "none",
         }}
@@ -120,7 +120,7 @@ export default function Hero() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         style={{
           position: "absolute", left: "8%", bottom: "18%",
-          width: 260, height: 260, borderRadius: "50%",
+          width: "clamp(140px, 25vw, 260px)", height: "clamp(140px, 25vw, 260px)", borderRadius: "50%",
           background: "radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%)",
           filter: "blur(30px)", pointerEvents: "none",
         }}
@@ -189,7 +189,7 @@ export default function Hero() {
                   style={{
                     width: 90, height: 155, borderRadius: 10, overflow: "hidden",
                     border: "1.5px solid rgba(11,191,187,0.35)",
-                    boxShadow: "0 12px 40px rgba(0,0,0,0.6), 0 0 20px rgba(11,191,187,0.1)",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.12), 0 0 12px rgba(10,158,155,0.06)",
                     flexShrink: 0,
                   }}
                 >
@@ -202,7 +202,7 @@ export default function Hero() {
 
           <motion.p
             variants={item}
-            style={{ color: "var(--muted)", fontSize: "1rem", maxWidth: 420, lineHeight: 1.7, marginBottom: "1.5rem" }}
+            style={{ color: "var(--muted)", fontSize: "clamp(0.95rem, 2vw, 1.15rem)", maxWidth: 420, lineHeight: 1.8, marginBottom: "1.5rem" }}
           >
             I'm a tarot reader who gives you real talk, not vague answers.
             Whether you're lost, curious, or just need a sign — let's look at the cards together.
