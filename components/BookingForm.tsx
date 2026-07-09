@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
+
+const WHATSAPP_NUMBER = "447907451315";
 
 const readingTypes = [
   "30 Minute Tarot Reading — £25",
@@ -15,29 +17,27 @@ const readingTypes = [
   "30 Minute Audio Recording — £25",
 ];
 
-type Status = "idle" | "sending" | "success" | "error";
-
 export default function BookingForm() {
   const [form, setForm] = useState({ name: "", email: "", reading: "", message: "" });
-  const [status, setStatus] = useState<Status>("idle");
   const [focused, setFocused] = useState<string | null>(null);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("sending");
-    try {
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
-      });
-      setStatus(res.ok ? "success" : "error");
-      if (res.ok) setForm({ name: "", email: "", reading: "", message: "" });
-    } catch { setStatus("error"); }
+    const lines = [
+      `Hi! I'd like to book a reading.`,
+      ``,
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Reading: ${form.reading}`,
+      form.message ? `Message: ${form.message}` : "",
+    ].filter(Boolean).join("\n");
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank");
   }
 
   const isFocused = (name: string) => focused === name;
@@ -96,45 +96,10 @@ export default function BookingForm() {
             <div className="font-display" style={{ position: "absolute", bottom: "0.75rem", left: "1rem", fontSize: "1.2rem", color: "rgba(201,168,76,0.12)", userSelect: "none" }}>✦</div>
             <div className="font-display" style={{ position: "absolute", bottom: "0.75rem", right: "1rem", fontSize: "1.2rem", color: "rgba(201,168,76,0.12)", userSelect: "none" }}>✦</div>
 
-            <AnimatePresence mode="wait">
-              {status === "success" ? (
-                <motion.div
-                  key="success"
-                  initial={{ scale: 0.9, y: 12 }}
-                  animate={{ scale: 1, y: 0 }}
-                  exit={{ scale: 0.9, y: -12 }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  style={{ textAlign: "center", padding: "3rem 0", display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1], rotate: [0, 12, -12, 0] }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
-                    style={{ fontSize: "3.5rem" }}
-                  >
-                    🔮
-                  </motion.div>
-                  <h3 className="font-display" style={{ fontSize: "1.6rem", fontWeight: 700, color: "var(--warm)" }}>
-                    The cards have heard you.
-                  </h3>
-                  <p style={{ color: "var(--muted)", maxWidth: 300, lineHeight: 1.7 }}>
-                    I'll reach out within 24 hours to confirm your reading. Stay open.
-                  </p>
-                  <div className="teal-line" style={{ width: 60 }} />
-                  <button
-                    onClick={() => setStatus("idle")}
-                    style={{ fontSize: "0.78rem", color: "var(--teal)", textDecoration: "underline", textUnderlineOffset: 4, cursor: "pointer", background: "none" }}
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="form"
-                  onSubmit={handleSubmit}
-                  exit={{ scale: 0.97, y: -8 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ display: "flex", flexDirection: "column", gap: 22 }}
-                >
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: "flex", flexDirection: "column", gap: 22 }}
+            >
                   {/* Name + Email */}
                   <div className="grid sm:grid-cols-2 gap-5">
                     {[
@@ -200,46 +165,31 @@ export default function BookingForm() {
                     />
                   </div>
 
-                  {status === "error" && (
-                    <p style={{ color: "#FF8080", fontSize: "0.82rem", textAlign: "center" }}>
-                      Something went wrong. Please try again.
-                    </p>
-                  )}
-
                   {/* Submit */}
                   <motion.button
                     type="submit"
-                    disabled={status === "sending"}
-                    whileHover={{ scale: 1.02, boxShadow: "0 0 40px rgba(11,191,187,0.35)" }}
+                    whileHover={{ scale: 1.02, boxShadow: "0 0 40px rgba(37,211,102,0.35)" }}
                     whileTap={{ scale: 0.97 }}
                     style={{
                       width: "100%", padding: "1rem",
-                      background: "linear-gradient(135deg, var(--teal) 0%, #0AADAA 100%)",
+                      background: "#25D366",
                       color: "#FFFFFF", fontWeight: 700, fontSize: "0.88rem",
                       letterSpacing: "0.08em", textTransform: "uppercase",
-                      borderRadius: 12, cursor: status === "sending" ? "not-allowed" : "pointer",
-                      opacity: status === "sending" ? 0.6 : 1,
+                      borderRadius: 12, cursor: "pointer",
                       border: "none", fontFamily: "var(--font-cinzel), serif",
-                      transition: "opacity 0.2s",
+                      display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
                     }}
                   >
-                    {status === "sending" ? (
-                      <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
-                        <svg style={{ width: 16, height: 16, animation: "spin 1s linear infinite" }} viewBox="0 0 24 24" fill="none">
-                          <circle style={{ opacity: 0.25 }} cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path style={{ opacity: 0.75 }} fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                        </svg>
-                        Reaching the cards...
-                      </span>
-                    ) : "Request a Reading ✦"}
+                    <svg style={{ width: 18, height: 18 }} fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Book via WhatsApp
                   </motion.button>
 
                   <p style={{ fontSize: "0.75rem", color: "rgba(122,138,138,0.5)", textAlign: "center", letterSpacing: "0.04em" }}>
                     ✦ &nbsp; Responses within 24 hours &nbsp; · &nbsp; Your information stays private &nbsp; ✦
                   </p>
-                </motion.form>
-              )}
-            </AnimatePresence>
+            </form>
           </div>
         </ScrollReveal>
       </div>

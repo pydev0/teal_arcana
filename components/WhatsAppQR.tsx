@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import QRCode from "react-qr-code";
 import { ScrollReveal } from "./ScrollReveal";
 
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = "447907451315";
 const WHATSAPP_MESSAGE = "Hi! I'd like to book a tarot reading with Teal Arcana 🔮";
 const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
@@ -14,7 +14,7 @@ export default function WhatsAppQR() {
   const qrInView = useInView(qrRef, { once: true, margin: "-60px 0px" });
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden section-backdrop">
+    <section id="book" className="py-20 px-6 relative overflow-hidden section-backdrop">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div

@@ -4,7 +4,6 @@ import CardPull from "@/components/CardPull";
 import HowItWorks from "@/components/HowItWorks";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
-import BookingForm from "@/components/BookingForm";
 import WhatsAppQR from "@/components/WhatsAppQR";
 import Footer from "@/components/Footer";
 
@@ -17,7 +16,6 @@ export default function Home() {
       <HowItWorks />
       <Services />
       <Testimonials />
-      <BookingForm />
       <WhatsAppQR />
       <Footer />
     </main>

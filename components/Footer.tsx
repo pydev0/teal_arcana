@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="px-6 py-14 section-backdrop" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+    <footer className="px-6 py-14" style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderTop: "1px solid rgba(255,255,255,0.12)" }}>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
